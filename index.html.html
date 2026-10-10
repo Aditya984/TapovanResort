@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tapovan Resort – Stay Close to Nature</title>
+<meta name="description" content="Tapovan Resort: cottages, pool, open lawns and farm-fresh dining in a quiet green retreat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+<!-- #WHICHISWHAT Broken-image safety net: if any <img> link is missing or wrong, this hides that image so the coloured gradient box behind it shows instead of an ugly "broken image" icon. Once you paste a working link, the photo appears automatically. -->
+<script>
+document.addEventListener('error', e => { if (e.target instanceof HTMLImageElement) e.target.hidden = true; }, true);
+</script>
+
+<style>
+/* #WHICHISWHAT Colour palette, fonts and shadows used everywhere. Change a colour here and it changes across the whole page. */
+:root{--bg:#f6f0e3;--bg2:#ece3d0;--card:#fffaf0;--ink:#231b14;--mute:#6b5d4d;--green:#1f3a2d;--gold:#9a722a;--gold-hi:#d4af6a;--line:rgba(154,114,42,.35);--shadow:0 10px 30px rgba(60,40,10,.12);
+--gold-grad:linear-gradient(135deg,#ecd196 0%,#c39a4c 50%,#93692a 100%);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+
+/* #WHICHISWHAT Dark mode colours. Used automatically when the visitor's phone/computer is in dark mode. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0f0e;--bg2:#141715;--card:#1a1d1b;--ink:#f1e9d8;--mute:#b3a893;--green:#8fc0a2;--gold:#d4af6a;--line:rgba(212,175,106,.28);--shadow:0 14px 40px rgba(0,0,0,.55)}}
+:root[data-theme="dark"]{--bg:#0d0f0e;--bg2:#141715;--card:#1a1d1b;--ink:#f1e9d8;--mute:#b3a893;--green:#8fc0a2;--gold:#d4af6a;--line:rgba(212,175,106,.28);--shadow:0 14px 40px rgba(0,0,0,.55)}
+
+/* #WHICHISWHAT Base page rules: keeps content clear of phone notches, smooth scrolling to sections, default text style, and reset of spacing. */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*:before,*:after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;font-size:15.5px}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);line-height:1.08;margin:0;font-weight:600;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:88px 0}
+.alt{background:var(--bg2)}
+
+/* #WHICHISWHAT Small gold label above each heading, the heading itself with its gold underline, and the grey intro paragraph. */
+.eyebrow{color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}
+h2{font-size:clamp(2.1rem,5vw,3.2rem);margin:12px 0 18px}
+h2:after{content:"";display:block;width:56px;height:2px;background:var(--gold-grad);margin-top:16px}
+.lead{color:var(--mute);max-width:620px}
+
+/* #WHICHISWHAT Buttons: gold (main action), outlined WhatsApp (on dark hero) and green-outline (on room cards). */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:2px;font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s,background .25s;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold-grad);color:#1a1205;box-shadow:0 6px 18px rgba(147,105,42,.35)}
+.btn-gold:hover{filter:brightness(1.08);box-shadow:0 10px 26px rgba(147,105,42,.5)}
+.btn-wa{background:rgba(255,255,255,.06);color:#f4e7c6;border-color:var(--gold-hi);backdrop-filter:blur(8px)}
+.btn-wa:hover{background:var(--gold-hi);color:#1a1205}
+.btn-green{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-green:hover{background:var(--gold-grad);color:#1a1205;border-color:transparent}
+
+/* #WHICHISWHAT Top bar (header): transparent over the hero, turns solid after scrolling. Also styles the logo, desktop links, Book Now button, burger icon and mobile menu. */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+header.solid{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:#f3e3bd;letter-spacing:.14em;text-transform:uppercase}
+header.solid .logo{color:var(--gold)}
+.logo img{height:40px;width:auto}
+.nav-links,.nav-cta{display:none}
+.nav-links{gap:30px;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.nav-links a{color:#f3ead6;position:relative}
+header.solid .nav-links a{color:var(--ink)}
+.nav-links a:after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold-hi);transition:width .3s}
+.nav-links a:hover:after{width:100%}
+.nav-links a:hover{color:var(--gold-hi)}
+.nav-cta{padding:10px 22px}
+.burger{background:none;border:0;padding:8px;cursor:pointer;color:#f3e3bd}
+header.solid .burger{color:var(--gold)}
+.burger span{display:block;width:24px;height:1.5px;background:currentColor;margin:6px 0;transition:.3s}
+.menu{display:none;background:var(--bg);border-top:1px solid var(--line);padding:10px 20px 22px}
+.menu.open{display:block}
+.menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
+.menu a:last-child{color:var(--gold)}
+@media(min-width:860px){.nav-links{display:flex}.nav-cta{display:inline-flex}.burger,.menu{display:none!important}}
+
+/* #WHICHISWHAT Hero (the big first screen): dark green gradient fallback, your hero photo on top of it, a dark overlay so text stays readable, then the text, buttons and trust badges. */
+.hero{min-height:100svh;display:flex;align-items:center;color:#f6efdd;text-align:center;padding:120px 0 80px;position:relative;overflow:hidden;
+background:radial-gradient(60% 50% at 78% 12%,rgba(212,175,106,.22),transparent 70%),radial-gradient(120% 90% at 30% 0,#2c4a3a 0,#14221b 55%,#08100c 100%)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,10,9,.55),rgba(8,10,9,.88))}
+.hero:after{content:"";position:absolute;left:50%;bottom:28px;width:1px;height:46px;z-index:2;background:linear-gradient(var(--gold-hi),transparent)}
+.hero .wrap{position:relative;z-index:2}
+.hero .eyebrow{justify-content:center;color:var(--gold-hi)}
+.hero .eyebrow:before{background:var(--gold-hi)}
+.hero h1{font-size:clamp(2.8rem,9vw,5.4rem);max-width:840px;margin:18px auto 20px;font-weight:500}
+.hero p{max-width:560px;margin:0 auto 34px;font-size:1.05rem;color:#e4dcc6}
+.cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.trust{margin-top:48px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 30px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-hi)}
+
+/* #WHICHISWHAT Two-column layout (text on one side, picture/form on the other). Stacks into one column on phones. */
+.grid2{display:grid;gap:44px;align-items:center}
+.grid2.top{align-items:start}
+@media(min-width:860px){.grid2{grid-template-columns:1fr 1fr}}
+
+/* #WHICHISWHAT Photo tile (.ph): the reusable picture box. Holds a coloured gradient (shown until your photo loads), the <img>, a dark fade at the bottom and a caption. g1 to g6 are the 6 gradient colours. */
+.ph{border-radius:3px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:16px;color:#f6efdd;font-size:.8rem;font-weight:500;letter-spacing:.06em;border:1px solid var(--line)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(5,6,5,.65))}
+.ph .caption{position:relative;z-index:1}
+.g1{background:linear-gradient(135deg,#4d7b62,#173326)}.g2{background:linear-gradient(135deg,#c79a55,#5e3d17)}
+.g3{background:linear-gradient(135deg,#56707c,#1c2d36)}.g4{background:linear-gradient(135deg,#8a9161,#333a1d)}
+.g5{background:linear-gradient(135deg,#8a5a41,#2e1a10)}.g6{background:linear-gradient(135deg,#5d5a78,#1d1b2e)}
+
+/* #WHICHISWHAT "The Experience" section: the large resort photo with a gold outline, and the three numbers (cottages, acres, capacity). */
+.about-img{min-height:380px;box-shadow:var(--shadow);outline:1px solid var(--gold);outline-offset:10px}
+.stats{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+.stats b{font-family:var(--serif);font-size:2.4rem;font-weight:600;color:var(--gold);display:block;line-height:1}
+.stats small{color:var(--mute);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem}
+
+/* #WHICHISWHAT Room cards: grid of 1, 2 or 3 columns by screen size; each card has a photo, price badge, title, details, feature tags and an Enquire button. */
+.cards{display:grid;gap:26px;margin-top:40px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-6px);border-color:var(--gold-hi)}
+.card .ph{height:200px;border:0;border-bottom:1px solid var(--line);border-radius:0}
+.ph .badge{position:absolute;top:14px;right:14px;z-index:2;background:var(--gold-grad);color:#1a1205;padding:6px 14px;border-radius:2px;font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.card .body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-size:1.75rem}
+.meta{color:var(--mute);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:4px 10px;border-radius:2px;color:var(--gold)}
+.card .btn{margin-top:auto;padding:12px 20px}
+.note{font-size:.82rem;color:var(--mute);margin-top:20px;font-style:italic}
+
+/* #WHICHISWHAT Amenity boxes: 2 columns on phones, 3 on desktop; each has a photo strip on top, a line icon, title and description. */
+.amen{display:grid;gap:16px;margin-top:40px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.amen{grid-template-columns:repeat(3,1fr);gap:24px}}
+.am{padding:28px 20px;border:1px solid var(--line);border-radius:3px;background:var(--card);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+.am:hover{border-color:var(--gold-hi);transform:translateY(-4px);box-shadow:var(--shadow)}
+.am .ph{height:140px;margin:-28px -20px 18px;border:0;border-bottom:1px solid var(--line);border-radius:0}
+.am .ph:after{display:none}
+.am svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.am h3{font-size:1.45rem;margin-bottom:6px}
+.am p{margin:0;color:var(--mute);font-size:.88rem}
+
+/* #WHICHISWHAT Gallery grid: 2 columns on phones, 4 on desktop. "tall" tiles are two rows high, "wide" tiles are two columns wide. */
+.gal{display:grid;gap:12px;margin-top:40px;grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:190px}}
+.gal button{padding:0;cursor:zoom-in;font-family:inherit;transition:transform .35s,border-color .35s}
+.gal button:hover{transform:scale(1.025);border-color:var(--gold-hi);z-index:1}
+.gal .tall{grid-row:span 2}.gal .wide{grid-column:span 2}
+
+/* #WHICHISWHAT Lightbox: the full-screen dark photo viewer that opens when a gallery tile is clicked, with close, previous and next buttons. */
+.lb{position:fixed;inset:0;background:rgba(6,7,6,.93);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.lb.open{display:flex}
+.lb .big{width:min(900px,100%);aspect-ratio:3/2;border-radius:3px;border:1px solid var(--gold-hi);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:22px;color:#f6efdd;font-family:var(--serif);font-size:1.5rem}
+.lb .big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lb .big span{position:relative;z-index:1;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.lb .x,.lb .nv{position:absolute;background:rgba(212,175,106,.12);color:var(--gold-hi);border:1px solid var(--gold-hi);width:46px;height:46px;border-radius:50%;font-size:1.4rem;cursor:pointer;transition:background .25s}
+.lb .x:hover,.lb .nv:hover{background:var(--gold-hi);color:#1a1205}
+.lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:16px}
+.lb .pv,.lb .nx{top:50%;transform:translateY(-50%)}
+.lb .pv{left:12px}.lb .nx{right:12px}
+
+/* #WHICHISWHAT Contact section: address/phone list, map placeholder box, and the reservation form with its labels, inputs, error messages and success message. */
+.info{display:grid;gap:16px;margin:26px 0}
+.info div{display:flex;gap:14px;color:var(--mute)}
+.info b{color:var(--gold);display:block;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;font-weight:600}
+.info a:hover{color:var(--gold)}
+.map{height:240px;border-radius:3px;border:1px solid var(--gold);background:repeating-linear-gradient(45deg,var(--bg2),var(--bg2) 12px,var(--bg) 12px,var(--bg) 24px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);padding:20px;font-size:.88rem}
+form{background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;padding:30px 26px;display:grid;gap:16px;box-shadow:var(--shadow)}
+form h3{font-size:2rem}
+.row{display:grid;gap:16px}
+@media(min-width:520px){.row{grid-template-columns:1fr 1fr}}
+label{font-size:.68rem;font-weight:600;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:.95rem;letter-spacing:normal;text-transform:none;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px;width:100%;transition:border-color .25s}
+select option{background:var(--card);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--gold-hi);box-shadow:0 1px 0 var(--gold-hi)}
+.err{color:#d9604c;font-size:.75rem;letter-spacing:normal;text-transform:none;display:none}
+.bad .err{display:block}.bad input{border-bottom-color:#d9604c}
+.form-status{background:var(--bg2);border:1px solid var(--gold);border-radius:3px;padding:16px;font-size:.9rem}
+.form-status a{color:var(--gold);font-weight:600;text-decoration:underline}
+
+/* #WHICHISWHAT Footer: dark bottom area with 4 columns, round social icons and copyright line. */
+footer{background:#080a09;color:#cfc6b0;padding:64px 0 28px;font-size:.88rem;border-top:1px solid var(--gold)}
+footer h4{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#e6c887;margin:0 0 12px;letter-spacing:.04em}
+.fg{display:grid;gap:34px}
+@media(min-width:800px){.fg{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{transition:color .25s}
+footer a:hover{color:var(--gold-hi)}
+.soc{display:flex;gap:10px;margin-top:16px}
+.soc a{width:40px;height:40px;border:1px solid rgba(212,175,106,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.72rem;color:var(--gold-hi);transition:background .25s,color .25s}
+.soc a:hover{background:var(--gold-hi);color:#1a1205}
+.soc img{width:20px;height:20px;object-fit:contain}
+.copy{border-top:1px solid rgba(212,175,106,.2);margin-top:40px;padding-top:22px;font-size:.78rem;letter-spacing:.06em;opacity:.8}
+
+/* #WHICHISWHAT Floating WhatsApp button pinned to the bottom-right corner of the screen. */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--gold-grad);color:#1a1205;border-radius:2px;padding:13px 20px;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .25s}
+.fab:hover{transform:translateY(-3px)}
+
+/* #WHICHISWHAT Image-or-text swap: when a logo/social icon image loads, the text version (e.g. "IG" or "Tapovan") is hidden. If the image is missing, the text shows instead. */
+.icon-link:has(img:not([hidden])) span{display:none}
+
+/* #WHICHISWHAT Accessibility: turns off animations for visitors who have "reduce motion" switched on. */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- #WHICHISWHAT HEADER: fixed top bar with logo, desktop links, Book Now button, burger button and the mobile dropdown menu. -->
+<header id="siteHeader">
+  <div class="wrap nav">
+    <!-- #WHICHISWHAT Logo: clicking returns to the top. Put your logo image link in src; if no image, the text "Tapovan" shows. -->
+    <a href="#top" class="logo icon-link"><img src="YOUR-LOGO-IMAGE-LINK" alt="Tapovan Resort logo"><span>Tapovan</span></a>
+
+    <!-- #WHICHISWHAT Desktop menu: 5 links that jump to page sections (hidden on phones). -->
+    <nav class="nav-links" aria-label="Main">
+      <a href="#about">Experience</a><a href="#rooms">Stay</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </nav>
+
+    <!-- #WHICHISWHAT Book Now button (desktop only): jumps to the reservation form. -->
+    <a href="#contact" class="btn btn-gold nav-cta">Book Now</a>
+
+    <!-- #WHICHISWHAT Burger button (phones only): the three-line icon that opens/closes the mobile menu. -->
+    <button class="burger" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+
+  <!-- #WHICHISWHAT Mobile menu: dropdown list of the same links, shown when the burger is tapped. -->
+  <div class="menu" id="mobileMenu">
+    <a href="#about">Experience</a><a href="#rooms">Stay</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#contact">Book Your Stay</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- #WHICHISWHAT HERO SECTION: the first big screen visitors see, with headline, buttons and trust badges. -->
+<section class="hero">
+  <!-- #WHICHISWHAT Hero background photo: a wide, landscape resort photo works best. -->
+  <img class="hero-img" src="YOUR-HERO-BACKGROUND-IMAGE-LINK" alt="" fetchpriority="high" decoding="async">
+  <div class="wrap">
+    <div class="eyebrow">Tapovan Resort · Your Green Escape</div>
+    <h1>Slow down where the hills meet the sky</h1>
+    <p>Cottages tucked among trees, a sparkling pool, open lawns and home-style meals. Just the right distance from the city, a world away from the noise.</p>
+    <div class="cta">
+      <!-- #WHICHISWHAT Book Your Stay button: scrolls down to the reservation form. -->
+      <a href="#contact" class="btn btn-gold">Book Your Stay</a>
+      <!-- #WHICHISWHAT WhatsApp Inquiry button: opens WhatsApp with a ready-typed message. Change the phone number in the link. -->
+      <a href="https://wa.me/919800000000?text=Hi%20Tapovan%20Resort%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" class="btn btn-wa">WhatsApp Inquiry</a>
+    </div>
+    <!-- #WHICHISWHAT Trust badges: three short selling points. Edit the text to match your resort. -->
+    <div class="trust"><span>★ 4.8 guest rating</span><span>Family &amp; couple friendly</span><span>Free parking &amp; Wi-Fi</span></div>
+  </div>
+</section>
+
+<!-- #WHICHISWHAT EXPERIENCE (ABOUT) SECTION: short story about the resort, key numbers, and one large photo. -->
+<section id="about">
+  <div class="wrap grid2">
+    <div>
+      <div class="eyebrow">The Experience</div>
+      <h2>Quiet mornings, golden evenings</h2>
+      <p class="lead">Tapovan was built around a simple idea: a getaway should feel like exhaling. Wake to birdsong, walk through mango and teak groves, swim while the hills turn gold, and end the day around a crackling bonfire.</p>
+      <p class="lead">Whether it's a weekend with family, a quiet escape for two, or a corporate offsite, our team looks after the details so you can switch off.</p>
+      <!-- #WHICHISWHAT Key numbers: three stats (rooms, land size, event capacity). Edit the numbers freely. -->
+      <div class="stats"><div><b>12</b><small>Cottages &amp; rooms</small></div><div><b>5 acres</b><small>Green grounds</small></div><div><b>200</b><small>Event capacity</small></div></div>
+    </div>
+    <!-- #WHICHISWHAT About photo: wide shot of the resort grounds. -->
+    <div class="ph g1 about-img">
+      <img src="YOUR-ABOUT-IMAGE-LINK" alt="Resort grounds" loading="lazy" decoding="async">
+      <span class="caption">Replace with a wide shot of the resort grounds</span>
+    </div>
+  </div>
+</section>
+
+<!-- #WHICHISWHAT ROOMS SECTION: the three stay options, each as a card with photo, price, details and an Enquire button. -->
+<section id="rooms" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Accommodations</div>
+    <h2>Rest in comfort, surrounded by green</h2>
+    <p class="lead">Choose a space that fits your trip. All stays include breakfast, Wi-Fi and pool access.</p>
+    <div class="cards">
+
+      <!-- #WHICHISWHAT Room option 1, Garden Cottage (Rs 3,500/night): photo, details and tags. The Enquire button pre-selects this room in the form. -->
+      <article class="card">
+        <div class="ph g1">
+          <img src="YOUR-GARDEN-COTTAGE-IMAGE-LINK" alt="Garden Cottage" loading="lazy" decoding="async">
+          <span class="badge">₹3,500 / night</span><span class="caption">Garden Cottage</span>
+        </div>
+        <div class="body">
+          <h3>Garden Cottage</h3>
+          <div class="meta">Sleeps 2–3 · King bed · Private sit-out</div>
+          <div class="tags"><span>AC</span><span>Garden view</span><span>Tea kettle</span></div>
+          <a href="#contact" class="btn btn-green" data-room="Garden Cottage">Enquire</a>
+        </div>
+      </article>
+
+      <!-- #WHICHISWHAT Room option 2, Pool-View Suite (Rs 5,200/night): photo, details and tags. -->
+      <article class="card">
+        <div class="ph g2">
+          <img src="YOUR-POOL-VIEW-SUITE-IMAGE-LINK" alt="Pool-View Suite" loading="lazy" decoding="async">
+          <span class="badge">₹5,200 / night</span><span class="caption">Pool-View Suite</span>
+        </div>
+        <div class="body">
+          <h3>Pool-View Suite</h3>
+          <div class="meta">Sleeps 3–4 · Balcony · Sofa lounge</div>
+          <div class="tags"><span>AC</span><span>Pool access</span><span>Mini bar</span></div>
+          <a href="#contact" class="btn btn-green" data-room="Pool-View Suite">Enquire</a>
+        </div>
+      </article>
+
+      <!-- #WHICHISWHAT Room option 3, Family Villa (Rs 7,800/night): photo, details and tags. -->
+      <article class="card">
+        <div class="ph g4">
+          <img src="YOUR-FAMILY-VILLA-IMAGE-LINK" alt="Family Villa" loading="lazy" decoding="async">
+          <span class="badge">₹7,800 / night</span><span class="caption">Family Villa</span>
+        </div>
+        <div class="body">
+          <h3>Family Villa</h3>
+          <div class="meta">Sleeps 6–8 · 2 bedrooms · Private lawn</div>
+          <div class="tags"><span>AC</span><span>Kitchenette</span><span>BBQ corner</span></div>
+          <a href="#contact" class="btn btn-green" data-room="Family Villa">Enquire</a>
+        </div>
+      </article>
+    </div>
+    <!-- #WHICHISWHAT Price disclaimer: reminder that rates are samples. Update with your real policy. -->
+    <p class="note">Sample tariffs for illustration. Weekend and festival rates may vary. Taxes extra.</p>
+  </div>
+</section>
+
+<!-- #WHICHISWHAT AMENITIES SECTION: six facility boxes, each with a photo, an icon, a title and a short description. -->
+<section id="amenities">
+  <div class="wrap">
+    <div class="eyebrow">Amenities &amp; Highlights</div>
+    <h2>Everything for a restful, active stay</h2>
+    <div class="amen">
+
+      <!-- #WHICHISWHAT Amenity 1, Swimming Pool: photo + wave icon. -->
+      <div class="am">
+        <div class="ph g3"><img src="YOUR-SWIMMING-POOL-IMAGE-LINK" alt="Swimming pool" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18c2 0 2-1.5 5-1.5S9 18 12 18s3-1.5 5-1.5S20 18 22 18M2 13c2 0 2-1.5 5-1.5S9 13 12 13s3-1.5 5-1.5S20 13 22 13M8 11V5a2 2 0 0 1 4 0M14 11V5a2 2 0 0 1 4 0"/></svg>
+        <h3>Swimming Pool</h3><p>Open daylight hours with a kids' section and loungers.</p>
+      </div>
+
+      <!-- #WHICHISWHAT Amenity 2, Restaurant: photo + cutlery icon. -->
+      <div class="am">
+        <div class="ph g5"><img src="YOUR-RESTAURANT-IMAGE-LINK" alt="Restaurant" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v8a2 2 0 0 0 2 2v8M10 3v6M6 7h4M17 3c-2 2-3 5-3 8h3v10"/></svg>
+        <h3>Restaurant</h3><p>Veg &amp; non-veg menus, farm-fresh produce, live counters.</p>
+      </div>
+
+      <!-- #WHICHISWHAT Amenity 3, Indoor & Outdoor Games: photo + ball icon. -->
+      <div class="am">
+        <div class="ph g6"><img src="YOUR-GAMES-IMAGE-LINK" alt="Indoor and outdoor games" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M3 12h18"/></svg>
+        <h3>Indoor &amp; Outdoor Games</h3><p>Cricket, badminton, carrom, table tennis, board games.</p>
+      </div>
+
+      <!-- #WHICHISWHAT Amenity 4, Open Lawns: photo + leaf icon. -->
+      <div class="am">
+        <div class="ph g4"><img src="YOUR-OPEN-LAWNS-IMAGE-LINK" alt="Open lawns" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V10M12 10c-4 0-6-3-6-7 4 0 6 3 6 7zM12 14c4 0 6-3 6-7-4 0-6 3-6 7z"/></svg>
+        <h3>Open Lawns</h3><p>Sprawling lawns for yoga, picnics and sunset walks.</p>
+      </div>
+
+      <!-- #WHICHISWHAT Amenity 5, Bonfire Evenings: photo + flame icon. -->
+      <div class="am">
+        <div class="ph g2"><img src="YOUR-BONFIRE-IMAGE-LINK" alt="Bonfire evenings" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>
+        <h3>Bonfire Evenings</h3><p>Music, snacks and starry skies on request.</p>
+      </div>
+
+      <!-- #WHICHISWHAT Amenity 6, Event Spaces: photo + briefcase icon. -->
+      <div class="am">
+        <div class="ph g1"><img src="YOUR-EVENT-SPACE-IMAGE-LINK" alt="Event spaces" loading="lazy" decoding="async"></div>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 13h18"/></svg>
+        <h3>Event Spaces</h3><p>Weddings, birthdays and offsites up to 200 guests.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- #WHICHISWHAT GALLERY SECTION: six photo tiles. Clicking any tile opens it large in the lightbox at the bottom of the page. -->
+<section id="gallery" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Gallery</div>
+    <h2>A glimpse of Tapovan</h2>
+    <div class="gal" id="gallery-grid">
+      <!-- #WHICHISWHAT Gallery photo 1, Resort entrance (tall tile). -->
+      <button type="button" class="ph g1 tall"><img src="YOUR-GALLERY-1-ENTRANCE-IMAGE-LINK" alt="Resort entrance" loading="lazy" decoding="async"><span class="caption">Resort entrance</span></button>
+      <!-- #WHICHISWHAT Gallery photo 2, Swimming pool (normal tile). -->
+      <button type="button" class="ph g3"><img src="YOUR-GALLERY-2-POOL-IMAGE-LINK" alt="Swimming pool" loading="lazy" decoding="async"><span class="caption">Swimming pool</span></button>
+      <!-- #WHICHISWHAT Gallery photo 3, Garden cottage (normal tile). -->
+      <button type="button" class="ph g2"><img src="YOUR-GALLERY-3-COTTAGE-IMAGE-LINK" alt="Garden cottage" loading="lazy" decoding="async"><span class="caption">Garden cottage</span></button>
+      <!-- #WHICHISWHAT Gallery photo 4, Open lawns at sunset (wide tile, two columns). -->
+      <button type="button" class="ph g4 wide"><img src="YOUR-GALLERY-4-LAWNS-IMAGE-LINK" alt="Open lawns at sunset" loading="lazy" decoding="async"><span class="caption">Open lawns at sunset</span></button>
+      <!-- #WHICHISWHAT Gallery photo 5, Dining area (normal tile). -->
+      <button type="button" class="ph g5"><img src="YOUR-GALLERY-5-DINING-IMAGE-LINK" alt="Dining area" loading="lazy" decoding="async"><span class="caption">Dining area</span></button>
+      <!-- #WHICHISWHAT Gallery photo 6, Bonfire night (normal tile). -->
+      <button type="button" class="ph g6"><img src="YOUR-GALLERY-6-BONFIRE-IMAGE-LINK" alt="Bonfire night" loading="lazy" decoding="async"><span class="caption">Bonfire night</span></button>
+    </div>
+    <p class="note">Placeholder tiles. Replace each image link with a real photo.</p>
+  </div>
+</section>
+
+<!-- #WHICHISWHAT CONTACT SECTION: left side has address, phone, WhatsApp, timings and a map; right side has the reservation inquiry form. -->
+<section id="contact">
+  <div class="wrap grid2 top">
+    <div>
+      <div class="eyebrow">Location &amp; Contact</div>
+      <h2>Plan your getaway</h2>
+      <p class="lead">Tell us your dates and we'll reply within a few hours with availability and the best rate.</p>
+
+      <!-- #WHICHISWHAT Contact details list: address, call link, WhatsApp link, check-in/out times. Replace the sample details with real ones. -->
+      <div class="info">
+        <div><span aria-hidden="true">📍</span><span><b>Address</b>Tapovan Resort, Village Road, Near Hill View Point, Your District, State 000000</span></div>
+        <div><span aria-hidden="true">📞</span><span><b>Call</b><a href="tel:+919800000000">+91 98000 00000</a></span></div>
+        <div><span aria-hidden="true">💬</span><span><b>WhatsApp</b><a href="https://wa.me/919800000000" target="_blank" rel="noopener">Chat with us instantly</a></span></div>
+        <div><span aria-hidden="true">🕑</span><span><b>Check-in / out</b>2:00 PM / 11:00 AM</span></div>
+      </div>
+
+      <!-- #WHICHISWHAT Map placeholder: replace this box with your Google Maps embed code (iframe) or an <img src="YOUR-MAP-IMAGE-LINK"> screenshot of your location. -->
+      <div class="map">Map placeholder. Paste your Google Maps embed iframe here.<br>(Embedded maps may need to be linked instead on some hosts.)</div>
+    </div>
+
+    <!-- #WHICHISWHAT Reservation inquiry form: visitor enters details, the script checks them, then offers a ready-made WhatsApp message. -->
+    <form id="inquiryForm" novalidate>
+      <h3>Reservation inquiry</h3>
+      <div class="row">
+        <!-- #WHICHISWHAT Full name field: required, at least 2 letters. -->
+        <label>Full name<input name="name" required autocomplete="name"><span class="err">Please enter your name</span></label>
+        <!-- #WHICHISWHAT Phone / WhatsApp field: required, must look like a real phone number. -->
+        <label>Phone / WhatsApp<input name="phone" type="tel" required autocomplete="tel" inputmode="tel"><span class="err">Enter a valid phone number</span></label>
+      </div>
+      <div class="row">
+        <!-- #WHICHISWHAT Check-in date picker: required, cannot be in the past. -->
+        <label>Check-in<input name="in" type="date" required><span class="err">Choose a date</span></label>
+        <!-- #WHICHISWHAT Check-out date picker: required, must be after check-in. -->
+        <label>Check-out<input name="out" type="date" required><span class="err">Must be after check-in</span></label>
+      </div>
+      <div class="row">
+        <!-- #WHICHISWHAT Guests dropdown: how many people are staying. (Images cannot go inside dropdown options, so there are none here.) -->
+        <label>Guests
+          <select name="guests">
+            <!-- #WHICHISWHAT Option: 1 to 2 guests. -->
+            <option>1–2</option>
+            <!-- #WHICHISWHAT Option: 3 to 4 guests (selected by default). -->
+            <option selected>3–4</option>
+            <!-- #WHICHISWHAT Option: 5 to 8 guests. -->
+            <option>5–8</option>
+            <!-- #WHICHISWHAT Option: 9 or more guests. -->
+            <option>9+</option>
+          </select>
+        </label>
+        <!-- #WHICHISWHAT Room type dropdown: the Enquire buttons on the room cards fill this in automatically. Options match the room cards above. -->
+        <label>Room type
+          <select name="room" id="room">
+            <!-- #WHICHISWHAT Option: Garden Cottage (matches room card 1). -->
+            <option>Garden Cottage</option>
+            <!-- #WHICHISWHAT Option: Pool-View Suite (matches room card 2). -->
+            <option>Pool-View Suite</option>
+            <!-- #WHICHISWHAT Option: Family Villa (matches room card 3). -->
+            <option>Family Villa</option>
+            <!-- #WHICHISWHAT Option: Event / Group (for weddings and offsites; has no room card). -->
+            <option>Event / Group</option>
+          </select>
+        </label>
+      </div>
+      <!-- #WHICHISWHAT Message box: optional extra notes from the visitor. -->
+      <label>Message (optional)<textarea name="msg" rows="3"></textarea></label>
+      <!-- #WHICHISWHAT Send Inquiry button: validates the form and shows the WhatsApp link below. -->
+      <button class="btn btn-gold" type="submit">Send Inquiry</button>
+      <!-- #WHICHISWHAT Success message area: hidden until the form is valid, then shows the thank-you and WhatsApp link. -->
+      <div class="form-status" id="formStatus" role="status" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- #WHICHISWHAT FOOTER: four columns (about + social icons, quick links, policies, contact) and the copyright line. -->
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <h4>Tapovan Resort</h4>
+        <p>A peaceful, nature-first getaway for families, couples and groups.</p>
+        <!-- #WHICHISWHAT Social icons: each link takes an icon image; if none, the letters (IG/FB/YT) show. Replace each href="#" with your page link. -->
+        <div class="soc">
+          <!-- #WHICHISWHAT Social option: Instagram. -->
+          <a href="#" class="icon-link" aria-label="Instagram"><img src="YOUR-INSTAGRAM-ICON-LINK" alt=""><span>IG</span></a>
+          <!-- #WHICHISWHAT Social option: Facebook. -->
+          <a href="#" class="icon-link" aria-label="Facebook"><img src="YOUR-FACEBOOK-ICON-LINK" alt=""><span>FB</span></a>
+          <!-- #WHICHISWHAT Social option: YouTube. -->
+          <a href="#" class="icon-link" aria-label="YouTube"><img src="YOUR-YOUTUBE-ICON-LINK" alt=""><span>YT</span></a>
+        </div>
+      </div>
+      <!-- #WHICHISWHAT Explore column: quick links that jump to page sections. -->
+      <div><h4>Explore</h4><ul><li><a href="#about">Experience</a></li><li><a href="#rooms">Rooms</a></li><li><a href="#amenities">Amenities</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
+      <!-- #WHICHISWHAT Policies column: check-in/out times, ID and cancellation rules. -->
+      <div><h4>Policies</h4><ul><li>Check-in: 2:00 PM</li><li>Check-out: 11:00 AM</li><li>Valid photo ID required</li><li>Cancellation: free up to 7 days prior</li></ul></div>
+      <!-- #WHICHISWHAT Contact column: tap-to-call phone and email links. -->
+      <div><h4>Contact</h4><ul><li><a href="tel:+919800000000">+91 98000 00000</a></li><li><a href="mailto:stay@tapovanresort.example">stay@tapovanresort.example</a></li></ul></div>
+    </div>
+    <!-- #WHICHISWHAT Copyright line: the year updates automatically via the script. -->
+    <div class="copy">© <span id="year">2026</span> Tapovan Resort. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- #WHICHISWHAT Floating WhatsApp button: always visible bottom-right; opens a WhatsApp chat. Change the phone number in the link. -->
+<a class="fab" href="https://wa.me/919800000000" target="_blank" rel="noopener">WhatsApp</a>
+
+<!-- #WHICHISWHAT LIGHTBOX: hidden full-screen photo viewer. The script fills the large photo area with whichever gallery tile was clicked. -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <!-- #WHICHISWHAT Close button (X): closes the viewer. -->
+  <button class="x" id="lbClose" type="button" aria-label="Close">×</button>
+  <!-- #WHICHISWHAT Previous button: shows the earlier photo. -->
+  <button class="nv pv" id="lbPrev" type="button" aria-label="Previous">‹</button>
+  <!-- #WHICHISWHAT Large photo area: the script puts the clicked photo and its caption here. -->
+  <div class="big" id="lbBig"></div>
+  <!-- #WHICHISWHAT Next button: shows the following photo. -->
+  <button class="nv nx" id="lbNext" type="button" aria-label="Next">›</button>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  /* #WHICHISWHAT Shortcuts: $ finds one element on the page, $$ finds all matching elements. Saves typing below. */
+  const $  = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+  /* #WHICHISWHAT Your WhatsApp number (country code + number, no + or spaces). Used when building the inquiry message. */
+  const WHATSAPP_URL = 'https://wa.me/919800000000';
+
+  /* #WHICHISWHAT Footer year: writes the current year into the copyright line. */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- Header and mobile menu ---------- */
+  const header  = $('#siteHeader');
+  const menuBtn = $('#menuBtn');
+  const menu    = $('#mobileMenu');
+
+  /* #WHICHISWHAT updateHeader(): makes the top bar solid once you scroll down or the mobile menu is open; transparent at the very top. */
+  const updateHeader = () => header.classList.toggle('solid', window.scrollY > 40 || menu.classList.contains('open'));
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  /* #WHICHISWHAT setMenu(open): opens or closes the mobile menu and updates the burger button's accessibility state. */
+  const setMenu = open => {
+    menu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    updateHeader();
+  };
+  /* #WHICHISWHAT Burger click: toggles the mobile menu. */
+  menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  /* #WHICHISWHAT Menu link click: closes the mobile menu after you pick a link. */
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+
+  /* #WHICHISWHAT Room pre-select: clicking "Enquire" on a room card sets the Room type dropdown in the form to that room. */
+  $$('[data-room]').forEach(btn => btn.addEventListener('click', () => { $('#room').value = btn.dataset.room; }));
+
+  /* ---------- Lightbox ---------- */
+  const lightbox = $('#lightbox');
+  const lbBig    = $('#lbBig');
+  const tiles    = $$('#gallery-grid button');
+  let current = 0;
+
+  /* #WHICHISWHAT showPhoto(i): displays gallery tile number i (wraps around at the ends), copying its photo, colour and caption into the big viewer. */
+  const showPhoto = i => {
+    current = (i + tiles.length) % tiles.length;
+    const tile = tiles[current];
+    const img  = $('img', tile);
+    const caption = document.createElement('span');
+    caption.textContent = $('.caption', tile).textContent;
+    lbBig.className = 'big ' + (tile.className.match(/g\d/)?.[0] ?? 'g1');
+    lbBig.replaceChildren();
+    if (img && !img.hidden) lbBig.append(img.cloneNode());
+    lbBig.append(caption);
+  };
+
+  /* #WHICHISWHAT openLightbox(i): shows the viewer starting at photo i and stops the page behind from scrolling. */
+  const openLightbox = i => {
+    showPhoto(i);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    $('#lbClose').focus();
+  };
+
+  /* #WHICHISWHAT closeLightbox(): hides the viewer and lets the page scroll again. */
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  /* #WHICHISWHAT Lightbox controls: tile click opens, X closes, arrows move, clicking the dark background closes. */
+  tiles.forEach((tile, i) => tile.addEventListener('click', () => openLightbox(i)));
+  $('#lbClose').addEventListener('click', closeLightbox);
+  $('#lbPrev').addEventListener('click', () => showPhoto(current - 1));
+  $('#lbNext').addEventListener('click', () => showPhoto(current + 1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  /* #WHICHISWHAT Keyboard shortcuts while the viewer is open: Esc closes, left/right arrows change photo. */
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  showPhoto(current - 1);
+    if (e.key === 'ArrowRight') showPhoto(current + 1);
+  });
+
+  /* ---------- Inquiry form ---------- */
+  const form   = $('#inquiryForm');
+  const fields = form.elements;
+  const status = $('#formStatus');
+  /* #WHICHISWHAT Today's date in the visitor's own timezone (YYYY-MM-DD), used so past dates can't be chosen. */
+  const today  = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  fields.in.min = fields.out.min = today;
+
+  /* #WHICHISWHAT Check-out limit: whenever check-in changes, the earliest allowed check-out date moves to match. */
+  fields.in.addEventListener('change', () => { fields.out.min = fields.in.value || today; });
+
+  /* #WHICHISWHAT flag(field, invalid): shows or hides the red error text under a field. Returns true when the field is invalid. */
+  const flag = (field, invalid) => {
+    field.closest('label').classList.toggle('bad', invalid);
+    return invalid;
+  };
+
+  /* #WHICHISWHAT Form submit handler: checks every field, and if all are fine, builds the WhatsApp message and shows the thank-you with a send link. */
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = fields.name.value.trim();
+
+    const hasError = [
+      flag(fields.name,  name.length < 2),
+      flag(fields.phone, !/^[+\d][\d\s-]{8,}$/.test(fields.phone.value.trim())),
+      flag(fields.in,    !fields.in.value),
+      flag(fields.out,   !fields.out.value || fields.out.value <= fields.in.value)
+    ].some(Boolean);
+    if (hasError) return;
+
+    const lines = [
+      "Hi Tapovan Resort! I'd like to enquire.",
+      `Name: ${name}`,
+      `Phone: ${fields.phone.value.trim()}`,
+      `Dates: ${fields.in.value} to ${fields.out.value}`,
+      `Guests: ${fields.guests.value}`,
+      `Room: ${fields.room.value}`
+    ];
+    if (fields.msg.value.trim()) lines.push(`Note: ${fields.msg.value.trim()}`);
+
+    const link = document.createElement('a');
+    link.href = `${WHATSAPP_URL}?text=${encodeURIComponent(lines.join('\n'))}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Send it on WhatsApp for the fastest reply →';
+
+    status.replaceChildren(`Thank you, ${name}! Your inquiry is ready. `, link);
+    status.hidden = false;
+    // To receive by email/CRM, POST the form data to your own endpoint here.
+  });
+})();
+</script>
+</body>
+</html>
